@@ -5,7 +5,6 @@ import Header from './Header'
 const Home = () => {
   return (
     <div>
-      <Header />
         <Teachers />
     </div>
   )

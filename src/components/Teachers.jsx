@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from './Button'
 import axios from 'axios';
+import Header from './Header';
 
 const Teachers = () => {
     const [teachers, setTeachers] = useState([]);
@@ -18,6 +19,7 @@ const Teachers = () => {
     console.log("teacherResponse: ", teachers)
 
     return (
+        <><Header />
         <div className='flex flex-col items-center justify-between mt-20'>
             <h2>Öğretmenlerimiz: </h2><br/>
             <div className='flex items-center'>{
@@ -36,6 +38,7 @@ const Teachers = () => {
             }
             </div>
         </div>
+        </>
     )
 }
 
