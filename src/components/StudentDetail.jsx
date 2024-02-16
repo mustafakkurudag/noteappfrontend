@@ -5,24 +5,15 @@ const StudentDetail = (props) => {
     const isDialogOpened = props.isDialogOpened;
     const handleCloseDialog = props.handleCloseDialog;
     const student = props.std.tempStudent;
-    const theme = useTheme();
     const StyledPaper = styled(Paper)`
-        background-color: #d6d6d4;
+        background-color: #7da1db;
   `;
-  const StyledButton = styled(Button)`
-    background-color:info  
-  `
 
-    //const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
     const [fullWidth, setFullWidth] = React.useState(true);
     const [maxWidth] = React.useState("sm");
 
-    const handleClickOpen = () => {
-        setOpen(true);
-        //setTimeout(() => setOpen(false), 16000);
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -39,17 +30,18 @@ const StudentDetail = (props) => {
                 onClose={handleClose}
                 aria-labelledby="max-width-dialog-title"
             >
-                <DialogTitle id="max-width-dialog-title">
+                <DialogTitle sx={{ m: 1, p: 2 }} id="max-width-dialog-title">
                 <Typography sx={{fontWeight:'600', fontSize:20}}>Öğrenci Detayı</Typography></DialogTitle>
-                <DialogContent>
-                    <List
-                        sx={{ width: '100%', maxWidth: 360, bgcolor: '#d6d6d4' }}
+                <DialogContent sx={{  }}>
+                    <List 
+                        sx={{ width: '100%', maxWidth: 360, alignItems: 'flex-start' }}
                         aria-label="contacts"
+                        
                     >{
                         student !== null ?
                         <>
                         <ListItem disablePadding>
-                            <Typography sx={{fontWeight:'600'}}>Adı Soyadı:&nbsp;</Typography>
+                            <Typography sx={{fontWeight:'600' }}>Adı Soyadı:&nbsp;</Typography>
                             <Typography>{student.name} {student.surname}</Typography>
                         </ListItem>
                         <ListItem disablePadding>

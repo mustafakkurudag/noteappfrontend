@@ -11,6 +11,8 @@ const Students = () => {
   const teacherId = state.teacherId;
   const className = state.className;
   const classRoomId = state.classRoomId;
+  const teacherName = state.teacherName;
+  const teacherSurname = state.teacherSurname;
   const [isOpen, setIsOpen] = useState(false);
   const [tempStudent, setTempStudent] = useState(null);
   const [sortType, setSortType] = useState("default");
@@ -43,7 +45,6 @@ const Students = () => {
     axios.delete(`/students/deletebytrid/${trId}`)
       .then((response) => {
         getData()
-        //window.location.reload()
       }).catch((err) => {
         console.log("Error: ", err)
       })
@@ -58,13 +59,20 @@ const Students = () => {
       <div className='flex items-center justify-center h-1/5'>
         <Header />
       </div>
-      <div className='flex items-start justify-end mr-10'>
+      <div className="flex flex-row items-center justify-between ml-10 mr-10">
+      <div className='flex justify-start ml-10 w-fit h-fit'>
+        <span className='p-1 pl-4 pr-4 text-black text-lg font-bold'>
+          {teacherName} {teacherSurname}
+        </span>
+      </div>
+      <div className='flex justify-end items-center'>
         <button className='p-1 pl-4 pr-4 bg-blue-500 text-lg  rounded-lg text-white font-bold mb-3 mr-10'>
           <Link to={`/teachers/${teacherId}/new-student`}
             state={{ className, classRoomId, teacherId }}>
             Yeni Kayıt
             </Link>
         </button>
+      </div>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mr-10 ml-10">
     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
